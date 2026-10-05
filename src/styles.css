@@ -1,0 +1,12 @@
+body {
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.btn {
+  border-radius: 8px;
+}

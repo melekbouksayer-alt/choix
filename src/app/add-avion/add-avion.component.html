@@ -1,0 +1,38 @@
+<div class="container py-4">
+  <div class="card shadow-sm border-0 mx-auto form-card">
+    <div class="card-header bg-primary text-white">
+      <h1 class="h3 mb-0">Ajouter un avion</h1>
+    </div>
+    <div class="card-body">
+      <form #avionForm="ngForm" (ngSubmit)="addAvion()">
+        <div class="row g-3">
+          <div class="col-md-2">
+            <label class="form-label">ID Avion</label>
+            <input type="number" [(ngModel)]="newAvion.idAvion" name="idAvion" class="form-control" required>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">Nom Avion</label>
+            <input type="text" [(ngModel)]="newAvion.nomAvion" name="nomAvion" class="form-control" placeholder="Ex. Airbus A320" required>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">Modèle</label>
+            <input type="text" [(ngModel)]="newAvion.modele" name="modele" class="form-control" placeholder="Ex. A320-200" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Capacité</label>
+            <input type="number" [(ngModel)]="newAvion.capacite" name="capacite" class="form-control" min="1" required>
+          </div>
+          <div class="col-md-8">
+            <label class="form-label">Date de mise en service</label>
+            <input type="date" [(ngModel)]="newAvion.dateMiseEnService" name="dateMiseEnService" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="mt-4 d-flex gap-2">
+          <button type="submit" class="btn btn-success" [disabled]="avionForm.invalid">Ajouter</button>
+          <a routerLink="/avions" class="btn btn-secondary">Annuler</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

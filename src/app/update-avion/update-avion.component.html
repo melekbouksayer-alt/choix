@@ -1,0 +1,41 @@
+<div class="container py-4">
+  <div class="card shadow-sm border-0 mx-auto form-card">
+    <div class="card-header bg-success text-white">
+      <h1 class="h3 mb-0">Modifier un avion</h1>
+    </div>
+    <div class="card-body">
+      <form #avionForm="ngForm" (ngSubmit)="updateAvion()">
+        <div class="row g-3">
+          <div class="col-md-2">
+            <label class="form-label">ID Avion</label>
+            <input readonly type="number" [(ngModel)]="currentAvion.idAvion" name="idAvion" class="form-control">
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">Nom Avion</label>
+            <input type="text" [(ngModel)]="currentAvion.nomAvion" name="nomAvion" class="form-control" required>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">Modèle</label>
+            <input type="text" [(ngModel)]="currentAvion.modele" name="modele" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Capacité</label>
+            <input type="number" [(ngModel)]="currentAvion.capacite" name="capacite" class="form-control" min="1" required>
+          </div>
+          <div class="col-md-8">
+            <label class="form-label">Date de mise en service</label>
+            <input type="date"
+                   [ngModel]="currentAvion.dateMiseEnService | date:'yyyy-MM-dd'"
+                   (ngModelChange)="currentAvion.dateMiseEnService = $event"
+                   name="dateMiseEnService" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="mt-4 d-flex gap-2">
+          <button type="submit" class="btn btn-success" [disabled]="avionForm.invalid">Modifier</button>
+          <a routerLink="/avions" class="btn btn-secondary">Annuler</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
